@@ -23,8 +23,38 @@ const dummyData=[{
 ]
 
 const TodoScreen = () => {
+
+    const renderTodos = ({item,index})=>{
+        return (
+            <View style={{backgroundColor:"#1e90ff",
+                borderRadius: 6,
+                paddingHorizontal:6,
+                paddingVertical:12,
+                marginBottom: 12,
+            
+
+            }}> 
+                <Text style={{color:"fff", 
+                    fontSize:20,
+                    fontWeight:"bold"
+
+                }}>{item.title} </Text>
+            </View>
+        )
+           
+        
+        
+        
+           
+
+        
+
+    }
+    
+        
+    
   return (
-    <View style={{ marginHorizontal:16 }}>
+    <View style={{ marginHorizontal:16,}}>
       
       <TextInput style={{
         borderWidth:2, 
@@ -38,7 +68,7 @@ const TodoScreen = () => {
             backgroundColor:"#000",
             borderRadius:6,
             paddingVertical:8,
-            marginTop: 24,
+            marginVertical: 34,
             alignItems: "center",
         }}>
             <Text
@@ -48,11 +78,15 @@ const TodoScreen = () => {
             }}
             >Add</Text>
         </TouchableOpacity>
-        <FlatList/>
+        <FlatList
+            data = {dummyData}
+            renderItem={renderTodos}
+        />
     </View>
   )
 }
 
 export default TodoScreen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+})
